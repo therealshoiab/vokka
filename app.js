@@ -28,7 +28,7 @@ function openCheckoutDrawer(variantName, price) {
   if (successState) successState.style.display = 'none';
 
   if (backdrop) {
-    backdrop.classList.add('active');
+    backdrop.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 }
@@ -43,7 +43,7 @@ function closeCheckoutDrawer(e) {
 
   const backdrop = document.getElementById('checkout-backdrop');
   if (backdrop) {
-    backdrop.classList.remove('active');
+    backdrop.classList.remove('open');
     document.body.style.overflow = '';
   }
 }
