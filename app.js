@@ -3,6 +3,7 @@
 // State management
 let currentSelectedVariant = 'Single Bottle (100ml)';
 let currentSelectedPrice = 600;
+let currentQuantity = 1;
 let currentPaymentMethod = 'Cash on Delivery (COD)';
 const SELLER_WHATSAPP_NUMBER = '919419600518'; // Seller's WhatsApp destination
 
@@ -12,17 +13,18 @@ const SELLER_WHATSAPP_NUMBER = '919419600518'; // Seller's WhatsApp destination
 function openCheckoutDrawer(variantName, price) {
   if (variantName) currentSelectedVariant = variantName;
   if (price) currentSelectedPrice = price;
+  currentQuantity = 1;
 
   const backdrop = document.getElementById('checkout-backdrop');
   const variantTitle = document.getElementById('drawer-variant-title');
-  const variantPrice = document.getElementById('drawer-variant-price');
-  const btnText = document.getElementById('drawer-btn-text');
+  const qtyDisplay = document.getElementById('drawer-quantity-val');
   const formContainer = document.getElementById('drawer-form-container');
   const successState = document.getElementById('drawer-success-state');
 
   if (variantTitle) variantTitle.textContent = currentSelectedVariant;
-  if (variantPrice) variantPrice.textContent = `₹${currentSelectedPrice}`;
-  if (btnText) btnText.textContent = `Confirm & Send Order via WhatsApp (₹${currentSelectedPrice})`;
+  if (qtyDisplay) qtyDisplay.value = currentQuantity;
+
+  updateDrawerPricing();
 
   if (formContainer) formContainer.style.display = 'block';
   if (successState) successState.style.display = 'none';
@@ -49,6 +51,35 @@ function closeCheckoutDrawer(e) {
 }
 
 /**
+ * Adjust Quantity (+/-)
+ */
+function adjustQuantity(amount) {
+  currentQuantity = Math.max(1, currentQuantity + amount);
+  const qtyDisplay = document.getElementById('drawer-quantity-val');
+  if (qtyDisplay) {
+    qtyDisplay.value = currentQuantity;
+  }
+  updateDrawerPricing();
+}
+
+/**
+ * Update Drawer Prices dynamically based on quantity
+ */
+function updateDrawerPricing() {
+  const variantPrice = document.getElementById('drawer-variant-price');
+  const btnText = document.getElementById('drawer-btn-text');
+  
+  const totalCost = currentSelectedPrice * currentQuantity;
+
+  if (variantPrice) {
+    variantPrice.textContent = `₹${totalCost}`;
+  }
+  if (btnText) {
+    btnText.textContent = `Confirm & Send Order via WhatsApp (₹${totalCost})`;
+  }
+}
+
+/**
  * Select Payment Method
  */
 function selectPaymentMethod(element, method) {
@@ -63,11 +94,7 @@ function selectPaymentMethod(element, method) {
   if (radio) radio.checked = true;
 
   currentPaymentMethod = (method === 'COD') ? 'Cash on Delivery (COD)' : 'UPI / Online';
-
-  const btnText = document.getElementById('drawer-btn-text');
-  if (btnText) {
-    btnText.textContent = `Confirm & Send Order via WhatsApp (₹${currentSelectedPrice})`;
-  }
+  updateDrawerPricing();
 }
 
 /**
@@ -90,9 +117,10 @@ function processSimulatedOrder(e) {
     return;
   }
 
-  // Generate Tracking ID
+  // Generate Tracking ID and order details
   const trackingNum = 'VK-' + Math.floor(10000 + Math.random() * 90000);
   const orderTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+  const totalCost = currentSelectedPrice * currentQuantity;
 
   // Format WhatsApp Message directly for seller 9419600518
   const whatsappMsg = 
@@ -100,7 +128,8 @@ function processSimulatedOrder(e) {
 ---------------------------------------
 *Order Tracking ID:* #${trackingNum}
 *Package Selected:* ${currentSelectedVariant}
-*Amount Payable:* ₹${currentSelectedPrice} (${currentPaymentMethod})
+*Quantity:* ${currentQuantity} Pack(s)
+*Total Amount Payable:* ₹${totalCost} (${currentPaymentMethod})
 *Order Time:* ${orderTime}
 
 *👤 CUSTOMER DETAILS:*
@@ -134,7 +163,9 @@ _Sent automatically from VÖKKA Official Store_`;
 
   if (successName) successName.textContent = name;
   if (successTrack) successTrack.textContent = `#${trackingNum}`;
-  if (successPrice) successPrice.textContent = `₹${currentSelectedPrice} (${currentPaymentMethod})`;
+  if (successPrice) {
+    successPrice.textContent = `₹${totalCost} (${currentPaymentMethod}) for ${currentQuantity} Pack(s)`;
+  }
 
   if (formContainer) formContainer.style.display = 'none';
   if (successState) successState.style.display = 'block';

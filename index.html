@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VOKKA Thai Aqua 100ml | Unisex Luxury Eau De Parfum</title>
-  <meta name="description" content="VOKKA Thai Aqua 100 ml Unisex Luxury Aqua Perfume. Price: ₹600. Express Delivery & Cash on Delivery across India.">
+  <meta name="description" content="VOKKA Thai Aqua 100 ml Unisex Luxury Aqua Perfume. Price: ₹600. 7 Days Express Delivery & Cash on Delivery across India.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -45,7 +45,9 @@
   </div>
 
   <!-- PURE FULL-SCREEN IMAGE 1 (SANDSTONE PEDESTAL WITH PALM SHADOWS) -->
-  <section class="pure-full-image-stage stage-1" id="section-story"></section>
+  <section class="pure-full-image-stage" id="section-story">
+    <img src="assets/section1-palm.jpg" class="stage-bg-img" alt="VOKKA Thai Aqua Palm Shadow">
+  </section>
 
   <!-- GLASSMORPHIC SEPARATOR 2 -->
   <div class="glass-divider-ribbon">
@@ -59,7 +61,9 @@
   </div>
 
   <!-- PURE FULL-SCREEN IMAGE 2 (MARBLE SUITE VANITY WITH BOTANICALS) -->
-  <section class="pure-full-image-stage stage-2" id="section-notes"></section>
+  <section class="pure-full-image-stage" id="section-notes">
+    <img src="assets/section2-vanity.jpg" class="stage-bg-img" alt="VOKKA Thai Aqua Vanity">
+  </section>
 
   <!-- GLASSMORPHIC SEPARATOR 3 -->
   <div class="glass-divider-ribbon">
@@ -73,7 +77,9 @@
   </div>
 
   <!-- PURE FULL-SCREEN IMAGE 3 (SEASIDE WOOD DECK OVER TURQUOISE SEA) -->
-  <section class="pure-full-image-stage stage-3" id="section-why"></section>
+  <section class="pure-full-image-stage" id="section-why">
+    <img src="assets/section3-beach.jpg" class="stage-bg-img" alt="VOKKA Thai Aqua Beach">
+  </section>
 
   <!-- GLASSMORPHIC SEPARATOR 4 -->
   <div class="glass-divider-ribbon">
@@ -173,7 +179,7 @@
             </li>
             <li class="pkg-perk-item">
               <span class="pkg-perk-check">✓</span>
-              <span>Express Pan-India Delivery (2-4 Days)</span>
+              <span>Express Pan-India Delivery (7 Days)</span>
             </li>
             <li class="pkg-perk-item">
               <span class="pkg-perk-check">✓</span>
@@ -214,7 +220,7 @@
             </li>
             <li class="pkg-perk-item">
               <span class="pkg-perk-check">✓</span>
-              <span>Express Pan-India Delivery (2-4 Days)</span>
+              <span>Express Pan-India Delivery (7 Days)</span>
             </li>
             <li class="pkg-perk-item">
               <span class="pkg-perk-check">✓</span>
@@ -253,7 +259,7 @@
             </li>
             <li class="pkg-perk-item">
               <span class="pkg-perk-check">✓</span>
-              <span>Express Pan-India Delivery (2-4 Days)</span>
+              <span>Express Pan-India Delivery (7 Days)</span>
             </li>
             <li class="pkg-perk-item">
               <span class="pkg-perk-check">✓</span>
@@ -328,9 +334,9 @@
             <span class="verified-buyer-pill">✓ Verified</span>
           </div>
           <div class="review-stars">★★★★★</div>
-          <h4 class="review-title">"Fast Bluedart dispatch"</h4>
+          <h4 class="review-title">"Reliable 7-day delivery"</h4>
           <p class="review-body">
-            Delivered in 2 days to South Delhi with COD. Heavy flacon cap and high-pressure fine atomizer.
+            Delivered in 7 days to South Delhi with COD. Heavy flacon cap and high-pressure fine atomizer.
           </p>
         </div>
 
@@ -504,9 +510,9 @@
             <span class="verified-buyer-pill">✓ Verified</span>
           </div>
           <div class="review-stars">★★★★★</div>
-          <h4 class="review-title">"Speedy delivery to North East"</h4>
+          <h4 class="review-title">"On-time delivery to North East"</h4>
           <p class="review-body">
-            Reached Assam in 3 days with tamper-proof seal and pristine packaging. Highly satisfied.
+            Reached Assam in 7 days with tamper-proof seal and pristine packaging. Highly satisfied.
           </p>
         </div>
 
@@ -649,7 +655,7 @@
         <img src="assets/section4-buy.jpg" alt="VOKKA Thai Aqua Thumb" class="sticky-thumb">
         <div>
           <div class="sticky-name">VOKKA Thai Aqua 100ml EDP</div>
-          <div class="sticky-sub">Pan-India Delivery • Cash on Delivery</div>
+          <div class="sticky-sub">7 Days Pan-India Delivery • Cash on Delivery</div>
         </div>
       </div>
       <div class="sticky-actions">
@@ -675,10 +681,22 @@
       <div class="drawer-body" id="drawer-form-container">
         <div class="order-item-summary">
           <img src="assets/section4-buy.jpg" alt="Selected VOKKA Perfume" class="order-thumb" id="drawer-item-img">
-          <div class="order-details">
-            <div class="order-name">VOKKA Thai Aqua EDP</div>
-            <div class="order-variant" id="drawer-variant-title">Single Bottle (100ml)</div>
-            <div class="order-price" id="drawer-variant-price">₹600</div>
+          <div style="flex-grow: 1; display: flex; flex-direction: column;">
+            <div class="order-details" style="margin-bottom: 0.5rem;">
+              <div class="order-name">VOKKA Thai Aqua EDP</div>
+              <div class="order-variant" id="drawer-variant-title">Single Bottle (100ml)</div>
+              <div class="order-price" id="drawer-variant-price">₹600</div>
+            </div>
+            
+            <!-- Quantity Selector -->
+            <div class="qty-selector-container">
+              <span class="qty-label">Quantity</span>
+              <div class="qty-control-box">
+                <button type="button" class="qty-btn" onclick="adjustQuantity(-1)">−</button>
+                <input type="text" class="qty-input-display" id="drawer-quantity-val" value="1" readonly>
+                <button type="button" class="qty-btn" onclick="adjustQuantity(1)">+</button>
+              </div>
+            </div>
           </div>
         </div>
 

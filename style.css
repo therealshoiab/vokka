@@ -292,24 +292,22 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   width: 100%;
   min-height: 90vh;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  overflow: hidden;
 }
 
-.pure-full-image-stage.stage-1 {
-  background-image: url('assets/section1-palm.jpg');
-}
-
-.pure-full-image-stage.stage-2 {
-  background-image: url('assets/section2-vanity.jpg');
-}
-
-.pure-full-image-stage.stage-3 {
-  background-image: url('assets/section3-beach.jpg');
+.pure-full-image-stage img.stage-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 /* Glassmorphic Divider Ribbon between Images (Fully Responsive, Never Cuts Off) */
@@ -1299,6 +1297,71 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.25rem;
   color: var(--gold-dark);
   font-weight: 700;
+}
+
+/* Quantity Selector in Drawer */
+.qty-selector-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-subtle);
+  width: 100%;
+}
+
+.qty-label {
+  font-family: var(--font-nav);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+}
+
+.qty-control-box {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid var(--border-warm);
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.qty-btn {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.qty-btn:hover {
+  background-color: var(--bg-cream);
+  color: var(--gold-dark);
+}
+
+.qty-input-display {
+  width: 38px;
+  height: 32px;
+  border: none;
+  border-left: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  text-align: center;
+  font-family: var(--font-nav);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: transparent;
 }
 
 .form-group {
