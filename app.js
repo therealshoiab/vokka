@@ -141,11 +141,10 @@ _Sent automatically from VÖKKA Official Store_`;
 }
 
 /**
- * Sticky Bar and Floating Order Button Visibility
+ * Sticky Bar Visibility
  */
 function initStickyBar() {
   const stickyBar = document.getElementById('sticky-bar');
-  const floatBtn = document.getElementById('floating-order-btn');
   const heroSection = document.getElementById('hero-panorama');
 
   if (!heroSection) return;
@@ -156,10 +155,8 @@ function initStickyBar() {
 
     if (isPastHero) {
       if (stickyBar) stickyBar.classList.add('visible');
-      if (floatBtn) floatBtn.classList.add('visible');
     } else {
       if (stickyBar) stickyBar.classList.remove('visible');
-      if (floatBtn) floatBtn.classList.remove('visible');
     }
   });
 }
